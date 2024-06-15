@@ -1,0 +1,345 @@
+-- DDL--
+CREATE SCHEMA SRO;
+
+SET SEARCH_PATH TO SRO;
+
+--1
+CREATE TABLE DEPARTMENT(
+    Dept_id INTEGER,
+    Dept_name VARCHAR(255),
+    Manager_id INTEGER,
+    PRIMARY KEY(Dept_id),
+    FOREIGN KEY (Manager_id) REFERENCES Employee(Eid)
+    	ON UPDATE CASCADE
+    	ON DELETE CASCADE
+);
+SELECT * FROM DEPARTMENT;
+
+--2
+CREATE TABLE SECURITY(
+    Dept_id INTEGER,
+    ROLE VARCHAR(25),
+    PRIMARY KEY(Dept_id,ROLE),
+    FOREIGN KEY(Dept_id) REFERENCES DEPARTMENT(Dept_id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
+);
+SELECT * FROM SECURITY;
+
+--3
+CREATE TABLE Administrative_Staff (
+    Dept_id INTEGER,
+    Staff_position VARCHAR(25),
+    PRIMARY KEY (Dept_id, Staff_position),
+    FOREIGN KEY (Dept_id) REFERENCES DEPARTMENT (Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Administrative_Staff;
+
+--4
+CREATE TABLE Researcher(
+    Dept_id INTEGER,
+    No_of_Projects_involved INTEGER,
+    PRIMARY KEY (Dept_id, No_of_Projects_involved),
+    FOREIGN KEY (Dept_id) REFERENCES DEPARTMENT(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Researcher;
+
+--5
+CREATE TABLE Transportation(
+    Dept_id INTEGER,
+    Type_of_transportation VARCHAR(20),
+    PRIMARY KEY (Dept_id, Type_of_transportation),
+    FOREIGN KEY (Dept_id) REFERENCES DEPARTMENT(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Transportation;
+
+--6
+CREATE TABLE Technician(
+    Dept_id INTEGER,
+    Tech_skill TEXT,
+    PRIMARY KEY (Dept_id, Tech_skill),
+    FOREIGN KEY (Dept_id) REFERENCES DEPARTMENT(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Technician;
+
+
+--7
+CREATE TABLE House_keeping(
+    Dept_id INTEGER,
+    Housekeeping_task VARCHAR(25),
+    PRIMARY KEY (Dept_id, Housekeeping_task),
+    FOREIGN KEY (Dept_id) REFERENCES DEPARTMENT(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM House_keeping;
+
+--8
+CREATE TABLE Food_service(
+    Dept_id INTEGER,
+    Type_food_shift VARCHAR(50),
+    PRIMARY KEY (Dept_id, Type_food_shift),
+    FOREIGN KEY (Dept_id) REFERENCES DEPARTMENT(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Food_service;
+
+--9
+CREATE TABLE Inspection_team(
+    Dept_id INTEGER,
+    Inspection_task TEXT,
+    PRIMARY KEY (Dept_id, Inspection_task),
+    FOREIGN KEY (Dept_id) REFERENCES DEPARTMENT(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Inspection_team;
+
+--10
+CREATE TABLE SCIENTIST(
+    Dept_id INTEGER,
+    Field_of_expertise TEXT,
+    PRIMARY KEY (Dept_id, Field_of_expertise),
+    FOREIGN KEY (Dept_id) REFERENCES DEPARTMENT(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM SCIENTIST;
+
+--11
+CREATE TABLE Criteria (
+    c_name VARCHAR(20),
+    min_apt_mark DECIMAL(5,2),
+    PRIMARY KEY(c_name)
+);
+SELECT * FROM Criteria;
+
+--12
+CREATE TABLE Student_Applicants (
+    student_id INTEGER,
+    s_name VARCHAR(30),
+    Address TEXT,
+    age INTEGER,
+    email TEXT,
+    cpi DECIMAL(4,2), 
+    passing_year INTEGER,
+    PRIMARY KEY(student_id)
+);
+SELECT * FROM Student_Applicants;
+
+--13
+CREATE TABLE Eligibility (
+    apt_marks DECIMAL(4,2),
+    student_id INTEGER,
+    c_name VARCHAR(20),
+    PRIMARY KEY(student_id, c_name),
+    FOREIGN KEY (student_id) REFERENCES Student_Applicants(student_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    FOREIGN KEY (c_name) REFERENCES Criteria(c_name)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE    
+);
+SELECT * FROM Eligibility;
+
+--14
+CREATE TABLE Human_resources (
+	Hr_id SERIAL,
+    student_id INTEGER,
+    c_name VARCHAR(20),
+    Dept_id INTEGER,
+    PRIMARY KEY(Hr_id),
+    FOREIGN KEY (student_id, c_name) REFERENCES Eligibility(student_id, c_name)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    FOREIGN KEY (Dept_id) REFERENCES Department(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Human_resources;
+
+--15
+CREATE TABLE Project_manager (
+    Dept_id INTEGER,
+    No_of_project_managed INTEGER,
+    PRIMARY KEY (Dept_id),
+    FOREIGN KEY (Dept_id) REFERENCES Department(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Project_manager;
+
+--16
+CREATE TABLE Projects (
+    Project_id INTEGER,
+    p_name VARCHAR(30),
+    Result VARCHAR(10),
+    Start_date DATE,
+    Estimated_End_Date DATE,
+    End_Date DATE,
+    Dept_id INTEGER,
+    PRIMARY KEY(Project_id),
+    FOREIGN KEY(Dept_id) REFERENCES Project_manager(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Projects;
+
+--17
+CREATE TABLE Publication (
+    Project_id INTEGER,
+    Publication_year INTEGER,
+    Platform VARCHAR(50),
+    PRIMARY KEY (Project_id, Publication_year),
+    FOREIGN KEY (Project_id) REFERENCES Projects(Project_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Publication;
+
+--18
+CREATE TABLE Finance (
+    Dept_id INTEGER,
+    Account_No INTEGER,
+    PRIMARY KEY(Dept_id,Account_No),
+    FOREIGN KEY (Dept_id) REFERENCES Department(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Finance;
+
+--19
+CREATE TABLE Funding (
+    Dept_id INTEGER,
+    Account_No INTEGER,
+    Funding_type VARCHAR(50),
+    Gov_amount INTEGER,
+    Pvt_amount INTEGER,
+    Pvt_name VARCHAR(50),
+    PRIMARY KEY(Dept_id, Funding_type),
+    FOREIGN KEY (Dept_id,Account_No) REFERENCES Finance(Dept_id,Account_No)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Funding;
+
+--20
+CREATE TABLE Public_communication (
+    Dept_id INTEGER,
+    c_type VARCHAR(65),
+    PRIMARY KEY (Dept_id),
+    FOREIGN KEY (Dept_id) REFERENCES Department(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Public_communication;
+
+--21
+CREATE TABLE Exposition (
+    Expo_id INTEGER,
+    Title TEXT,
+    Place VARCHAR(80),
+    Date DATE,
+    Speaker_name VARCHAR(100),
+    Audience_type VARCHAR(45),
+    PRIMARY KEY (Expo_id)
+);
+SELECT * FROM Exposition;
+
+--22
+CREATE TABLE Connect_by (
+    Expo_id INTEGER,
+    Dept_id INTEGER,
+    PRIMARY KEY (Expo_id, Dept_id),
+    FOREIGN KEY (Dept_id) REFERENCES Public_communication(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    FOREIGN KEY (Expo_id) REFERENCES Exposition(Expo_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Connect_by; 
+
+--23
+CREATE TABLE Branch (
+    Branch_id INTEGER,
+    B_name VARCHAR(30),
+    State VARCHAR(25),
+    City VARCHAR(20),
+    Pincode INTEGER,
+    PRIMARY KEY (Branch_id)
+);
+SELECT * FROM Branch;
+
+--24
+CREATE TABLE Employee (
+    Eid INTEGER,
+    F_name VARCHAR(20),
+    M_init VARCHAR(2),
+    L_name VARCHAR(20),
+    Contact_No BIGINT,
+    Hire_Date DATE,
+    DOB DATE,
+    Gender VARCHAR(10),
+    Salary INTEGER,
+    Branch_id INTEGER,
+    Dept_id INTEGER,
+    PRIMARY KEY (Eid),
+    FOREIGN KEY (Dept_id) REFERENCES Department(Dept_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    FOREIGN KEY (Branch_id) REFERENCES Branch(Branch_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Employee;
+
+
+--25
+CREATE TABLE Emp_Email (
+    Eid INTEGER,
+    Email TEXT,
+    PRIMARY KEY (Eid,Email),
+    FOREIGN KEY (Eid) REFERENCES Employee (Eid)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Emp_Email;
+
+--26
+CREATE TABLE Emp_Education (
+    Eid INTEGER,
+    Institute_name TEXT,
+    Year_of_passing INTEGER,
+    Degree VARCHAR(40),
+    PRIMARY KEY(Eid, Institute_name),
+    FOREIGN KEY (Eid) REFERENCES Employee (Eid)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Emp_Educatio;
+
+--27
+CREATE TABLE Visitors (
+    Branch_id INTEGER,
+    Date_of_visit DATE,
+    Visitor_name TEXT,
+    Contact_no BIGINT,
+    Organization TEXT,
+    Purpose TEXT,
+    PRIMARY KEY (Branch_id, Date_of_visit),
+    FOREIGN KEY (Branch_id) REFERENCES Branch (Branch_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+SELECT * FROM Visitors;
+

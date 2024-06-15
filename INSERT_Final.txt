@@ -1,0 +1,764 @@
+
+SET SEARCH_PATH TO SRO;
+
+--1
+INSERT INTO Department (Dept_id, Dept_name,manager_id) 
+VALUES
+    (101, 'Scientific Research and Inspection Department',1004),
+    (102, 'Innovation and Inspection Division',1009),
+    (103, 'Spacecraft Systems',1025),
+    (104, 'Remote Sensing',1021),
+    (105, 'Mission Planning',1027),
+    (106, 'Ground Station Operations',1020),
+    (107, 'Astrophysics Research',1003),    
+    (108, 'Satellite Navigation',1001),    
+    (109, 'Space Robotics',1010),    
+    (110, 'Space Weather Research',1029),
+    (111, 'Computer Science Department',1023),
+    (112, 'Administrative Staff',1019),
+    (113, 'Security',1018),
+    (114, 'Human_resources',1012),
+    (115, 'Public_communication',1016),
+    (116, 'Food_service',1024),
+    (117, 'Project_managers',1011),
+    (118, 'House_keeping',1015),
+    (119, 'Transportation',1017),
+    (120, 'Finance',1013); 
+
+SELECT * FROM DEPARTMENT;
+
+	
+--2
+INSERT INTO Security(Dept_id, Role)
+VALUES
+      (113, 'Security Analyst'),
+      (113, 'Security Planner'),
+      (113, 'Security Guard'),
+      (113, 'Security Technician');
+
+SELECT * FROM Security;
+
+--3
+INSERT INTO Administrative_Staff (Dept_id, Staff_position)
+VALUES
+    (112, 'Administrative Assistant'),
+    (112, 'Administrative Specialist'),
+    (112, 'Clerk'),
+    (112, 'Receptionist'),
+    (112, 'Accountant'); 
+
+SELECT * FROM Administrative_Staff;
+
+--4
+INSERT INTO Researcher(Dept_id, No_of_Projects_involved)
+VALUES
+    (101, 10),
+    (102, 5),
+    (103, 7),
+    (104, 8),
+    (105, 3),
+    (106, 4),
+    (107, 2),
+    (108, 2),
+    (109, 3),
+    (110, 1),
+    (111, 15);
+
+SELECT * FROM Researcher;
+
+--5
+INSERT INTO Transportation(Dept_id, Type_of_transportation)
+VALUES
+       (119, 'Cargo Ship'),
+       (119, 'Transport Helicopter'),
+       (119, 'Truck'),
+       (119, 'Transport Rail'),
+       (119, 'Private Jet');
+
+SELECT * FROM Transportation;
+
+
+--6
+INSERT INTO Technician(Dept_id, Tech_skill)
+VALUES
+       (101, 'Electronics, Aerospace Engineering'),
+       (102, 'Propulsion Systems, Fluid Mechanics'),
+       (103, 'Mechanical Engineering, Systems Engineering'),
+       (104, 'Remote Sensing, GIS'),
+       (105, 'Project Management, Orbital Mechanics'),
+       (106, 'Telecommunications, Networking'),
+       (107, 'Robotics, Satellite Communications'),
+       (108, 'Navigation, Geology'),
+       (109, 'Mechatronics, AI'),
+       (110, 'Meteorology, Solar Physics'),
+       (111, 'Data Science, Communication Systems');
+
+SELECT * FROM Technician;
+
+--7
+INSERT INTO House_keeping (Dept_id, Housekeeping_task)
+VALUES
+      (118, 'Surface Cleaning'),
+      (118, 'Laundry Service'),
+      (118, 'Repairing'),
+      (118, 'Guest Services'),
+      (118, 'Inventory Management'),
+      (118, 'Ordering Supplies');
+
+SELECT * FROM House_keeping;
+
+--8
+INSERT INTO Food_service (Dept_id, Type_food_shift)
+VALUES
+      (116,'First Shift'),
+      (116,'Second Shift'),
+      (116,'Third Shift'),
+      (116,'Split Shift');
+
+SELECT * FROM Food_service;
+
+--9
+INSERT INTO Inspection_team (Dept_id, Inspection_task)
+VALUES
+      (101,'Designing, Testing, Launching satellites'),
+      (102,'Developing rocket engines, Testing propulsion systems'),
+      (103,'Designing spacecraft, Testing subsystems'),
+      (104,'Collecting and analyzing Earth observation data'),
+      (105,'Project Management, Orbital Mechanics', 'Planning and executing space missions'),
+      (106,'Telecommunications, Networking', 'Operating and maintaining ground stations'),
+      (108,'Developing satellite navigation systems'),
+      (109,'Designing and deploying robots for space exploration'),
+      (110,'Studying effects of space weather on technology');
+
+SELECT * FROM Inspection_team;
+
+--10
+INSERT INTO SCIENTIST (Dept_id, Field_of_expertise)
+VALUES
+      (101, 'Space Technology'),
+      (102, 'Aerospace Engineering'),
+      (103, 'Spacecraft Engineering'),
+      (104, 'Earth Observation'),
+      (105, 'Space Mission Planning'),
+      (106, 'Rocket Scientist'),
+      (107, 'Astrophysics'),    
+      (108, 'Navigation Systems'),    
+      (109, 'Robotics'),    
+      (110, 'Space Weather'),
+      (111, 'Artificial Intelligence');
+
+
+--11
+INSERT INTO Criteria (c_name, min_apt_mark)
+VALUES
+    ('Experience', 85.00),
+    ('Education', 90.00),
+    ('Technical Skills', 88.50),
+    ('Problem Solving', 87.00),
+    ('Communication', 86.00),
+    ('Teamwork', 85.50),
+    ('Leadership', 87.50),
+    ('Innovation', 89.00),
+    ('Attention to Detail', 86.50),
+    ('Analytical Thinking', 88.50),
+    ('Time Management', 87.00),
+    ('Creativity', 89.50),
+    ('Decision Making', 88.00);
+
+SELECT * FROM Criteria;
+
+	
+--12
+INSERT INTO Student_Applicants (student_id, s_name, Address, age, email, cpi, passing_year)
+VALUES
+    (2201, 'Juhi Varma', '123 Space Street, Houston, TX', 25, 'john.doe@example.com', 8.75, 2023),
+    (2202, 'priya Patel', '456 Rocket Road, Cape Canaveral, FL', 24, 'jane.smith@example.com', 7.70, 2022),
+    (2203, 'Harshil Parmar', '789 Launch Lane, Kennedy Space Center, FL', 26, 'bob.johnson@example.com', 8.60, 2021),
+    (2204, 'Raj Shah', '101 Observatory Drive, Pasadena, CA', 23, 'emily.brown@example.com', 9.00, 2024),
+    (2205, 'Yash Tarpara', '246 Lunar Lane, Houston, TX', 25, 'michael.lee@example.com', 8.80, 2023),
+    (2206, 'Sarah Taylor', '369 Comet Court, Huntsville, AL', 24, 'sarah.taylor@example.com', 8.95, 2022),
+    (2207, 'David Martinez', '777 Star Street, Mountain View, CA', 26, 'david.martinez@example.com', 8.70, 2021),
+    (2208, 'Emma Wilson', '888 Galaxy Road, Houston, TX', 23, 'emma.wilson@example.com', 5.94, 2024),
+    (2209, 'Rama Patel', '555 Planet Place, Greenbelt, MD', 25, 'daniel.anderson@example.com', 8.85, 2023),
+    (2210, 'Vikram Shah', '222 Nebula Avenue, Orlando, FL', 24, 'olivia.garcia@example.com', 8.75, 2022),
+    (2211, 'Anjali Mehta', '999 Spacewalk Street, Houston, TX', 26, 'william.thomas@example.com', 6.95, 2021),
+    (2212, 'Sophia Hernandez', '444 Cosmic Court, Houston, TX', 23, 'sophia.hernandez@example.com', 9.10, 2024),
+    (2213, 'James Wilson', '123 Asteroid Alley, Huntsville, AL', 25, 'james.wilson@example.com', 8.80, 2023),
+    (2214, 'Ava Lopez', '555 Black Hole Boulevard, Pasadena, CA', 24, 'ava.lopez@example.com', 6.50, 2022),
+    (2215, 'Samir Maheshvari', '777 Galaxy Garden, Mountain View, CA', 26, 'logan.martinez@example.com', 8.90, 2021);
+
+SELECT * FROM Student_Applicants;
+
+
+--13
+INSERT INTO Eligibility (apt_marks, student_id, c_name)
+VALUES
+    (89.00, 2201, 'Experience'),
+    (92.50, 2201, 'Education'),
+    (90.00, 2201, 'Problem Solving'),
+    (87.50, 2201, 'Communication'),
+    (86.00, 2201, 'Teamwork'),
+    (88.50, 2201, 'Leadership'),
+    (89.50, 2201, 'Attention to Detail'),
+    (90.50, 2201, 'Time Management'),
+    (88.00, 2201, 'Creativity'),
+    
+    (84.00, 2202, 'Experience'),
+    (90.00, 2202, 'Education'),
+    (87.50, 2202, 'Technical Skills'),
+    (88.00, 2202, 'Communication'),
+    (87.00, 2202, 'Teamwork'),
+    (88.00, 2202, 'Innovation'),
+    (86.00, 2202, 'Attention to Detail'),
+    (89.50, 2202, 'Analytical Thinking'),
+    (87.50, 2202, 'Time Management'),
+    (87.00, 2202, 'Decision Making'),
+
+    (90.00, 2203, 'Experience'),
+    (91.00, 2203, 'Education'),
+    (86.00, 2203, 'Technical Skills'),
+    (87.00, 2203, 'Problem Solving'),
+    (88.50, 2203, 'Communication'),
+    (85.50, 2203, 'Teamwork'),
+    (89.00, 2203, 'Leadership'),
+    (87.00, 2203, 'Innovation'),
+    (87.50, 2203, 'Attention to Detail'),
+    (85.00, 2203, 'Creativity'),
+    (88.50, 2203, 'Decision Making'),
+
+    (88.50, 2204, 'Experience'),
+    (89.50, 2204, 'Education'),
+    (88.00, 2204, 'Technical Skills'),
+    (91.50, 2204, 'Problem Solving'),
+    (87.00, 2204, 'Communication'),
+    (90.00, 2204, 'Attention to Detail'),
+    (87.00, 2204, 'Analytical Thinking'),
+    (89.50, 2204, 'Time Management'),
+    (88.00, 2204, 'Creativity'),
+    (89.00, 2204, 'Decision Making'),
+
+    (87.00, 2205, 'Experience'),
+    (90.00, 2205, 'Education'),
+    (86.00, 2205, 'Technical Skills'),
+    (88.00, 2205, 'Problem Solving'),
+    (88.50, 2205, 'Communication'),
+    (89.00, 2205, 'Teamwork'),
+    (86.00, 2205, 'Leadership'),
+    (87.00, 2205, 'Innovation'),
+
+    (89.50, 2206, 'Experience'),
+    (89.50, 2206, 'Teamwork'),
+    (87.50, 2206, 'Leadership'),
+    (90.00, 2206, 'Innovation'),
+    (88.50, 2206, 'Attention to Detail'),
+    (88.50, 2206, 'Analytical Thinking'),
+    (89.00, 2206, 'Time Management'),
+    (87.00, 2206, 'Creativity'),
+    (88.00, 2206, 'Decision Making'),
+
+   
+    (86.00, 2207, 'Experience'),
+    (90.00, 2207, 'Education'),
+    (88.00, 2207, 'Communication'),
+    (87.00, 2207, 'Teamwork'),
+    (87.00, 2207, 'Leadership'),
+    (87.00, 2207, 'Innovation'),
+    (87.00, 2207, 'Attention to Detail'),
+    (87.50, 2207, 'Creativity'),
+    (86.50, 2207, 'Decision Making'),
+
+    (89.00, 2208, 'Experience'),
+    (92.00, 2208, 'Education'),
+    (87.50, 2208, 'Technical Skills'),
+    (90.00, 2208, 'Problem Solving'),
+    (87.50, 2208, 'Communication'),
+    (88.00, 2208, 'Teamwork'),
+    (89.00, 2208, 'Leadership'),
+    (88.00, 2208, 'Analytical Thinking'),
+    (88.50, 2208, 'Time Management'),
+    (87.00, 2208, 'Creativity'),
+    (88.00, 2208, 'Decision Making'),
+
+    (88.50, 2209, 'Technical Skills'),
+    (89.00, 2209, 'Problem Solving'),
+    (88.00, 2209, 'Communication'),
+    (87.00, 2209, 'Teamwork'),
+    (89.00, 2209, 'Leadership'),
+    (88.50, 2209, 'Innovation'),
+    (88.00, 2209, 'Attention to Detail'),
+    (87.50, 2209, 'Analytical Thinking'),
+    (87.50, 2209, 'Time Management'),
+    (87.00, 2209, 'Creativity'),
+    (88.50, 2209, 'Decision Making'),
+
+    (87.00, 2210, 'Experience'),
+    (88.50, 2210, 'Education'),
+    (89.00, 2210, 'Technical Skills'),
+    (87.00, 2210, 'Problem Solving'),
+    (88.00, 2210, 'Communication'),
+    (89.50, 2210, 'Teamwork'),
+    (88.50, 2210, 'Leadership'),
+    (88.00, 2210, 'Innovation'),
+    (88.50, 2210, 'Attention to Detail'),
+    (89.00, 2210, 'Creativity'),
+    (87.50, 2210, 'Decision Making'),
+
+    (88.00, 2211, 'Experience'),
+    (87.00, 2211, 'Education'),
+    (87.00, 2211, 'Communication'),
+    (86.50, 2211, 'Teamwork'),
+    (88.00, 2211, 'Leadership'),
+    (87.50, 2211, 'Innovation'),
+    (89.00, 2211, 'Attention to Detail'),
+    (88.00, 2211, 'Analytical Thinking'),
+    (89.50, 2211, 'Time Management'),
+    (87.50, 2211, 'Creativity'),
+    (88.50, 2211, 'Decision Making'),
+
+    (89.50, 2212, 'Experience'),
+    (91.50, 2212, 'Education'),
+    (88.00, 2212, 'Technical Skills'),
+    (90.00, 2212, 'Problem Solving'),
+    (88.50, 2212, 'Communication'),
+    (88.50, 2212, 'Innovation'),
+    (89.50, 2212, 'Attention to Detail'),
+    (88.00, 2212, 'Analytical Thinking'),
+    (87.00, 2212, 'Time Management'),
+    (89.00, 2212, 'Creativity'),
+    (88.00, 2212, 'Decision Making'),
+
+    (90.00, 2213, 'Experience'),
+    (88.50, 2213, 'Education'),
+    (89.00, 2213, 'Technical Skills'),
+    (88.00, 2213, 'Teamwork'),
+    (87.00, 2213, 'Leadership'),
+    (88.00, 2213, 'Innovation'),
+    (88.50, 2213, 'Attention to Detail'),
+    (89.50, 2213, 'Analytical Thinking'),
+    (87.50, 2213, 'Time Management'),
+    (87.00, 2213, 'Creativity'),
+    (89.00, 2213, 'Decision Making'),
+
+
+    (87.50, 2214, 'Experience'),
+    (88.00, 2214, 'Education'),
+    (88.50, 2214, 'Technical Skills'),
+    (87.00, 2214, 'Problem Solving'),
+    (89.00, 2214, 'Communication'),
+    (87.50, 2214, 'Teamwork'),
+    (88.00, 2214, 'Leadership'),
+    (87.00, 2214, 'Innovation'),
+    (88.00, 2214, 'Attention to Detail'),
+    (87.50, 2214, 'Analytical Thinking'),
+    (88.50, 2214, 'Time Management'),
+
+    (89.00, 2215, 'Experience'),
+    (89.50, 2215, 'Education'),
+    (87.50, 2215, 'Technical Skills'),
+    (88.00, 2215, 'Problem Solving'),
+    (87.00, 2215, 'Communication'),
+    (89.50, 2215, 'Teamwork'),
+    (88.00, 2215, 'Leadership'),
+    (88.50, 2215, 'Innovation'),
+    (88.00, 2215, 'Creativity'),
+    (88.00, 2215, 'Decision Making');
+
+SELECT * FROM Eligibility;
+
+
+--14
+INSERT INTO Human_resources (student_id, c_name, Dept_id)
+VALUES
+    (2201, 'Experience', 101), 
+    (2201, 'Education', 101), 
+    (2201, 'Teamwork', 101), 
+    (2201, 'Problem Solving', 101),
+
+    (2203, 'Experience', 102), 
+    (2203, 'Education', 102), 
+    (2203, 'Teamwork', 102), 
+    (2203, 'Problem Solving', 102),
+
+    (2208, 'Education', 103),
+    (2208, 'Technical Skills', 103),
+    (2208, 'Creativity', 103),
+    (2208, 'Communication', 103),
+    (2208, 'Time Management', 103),
+    (2208, 'Analytical Thinking', 103),
+
+    (2205, 'Education', 104),
+    (2205, 'Problem Solving', 104),
+
+    (2206, 'Experience', 105),
+    (2206, 'Creativity', 105),
+    (2206, 'Decision Making', 105),
+    (2206, 'Time Management', 105),
+    (2206, 'Analytical Thinking', 105),
+    (2206, 'Leadership', 105),
+
+    (2213, 'Teamwork', 106),
+
+    (2214, 'Experience', 107),
+    (2214, 'Education', 107),
+    (2214, 'Teamwork', 107),
+    (2214, 'Problem Solving', 107),
+
+    (2204, 'Education', 108),
+    (2204, 'Communication', 108),
+    (2204, 'Attention to Detail', 108),
+    (2204, 'Time Management', 108),
+
+    (2212, 'Experience', 109),
+    (2212, 'Education', 109),
+    (2212, 'Creativity', 109),
+
+    (2215, 'Experience', 110),
+    (2215, 'Problem Solving', 110),
+
+    (2210, 'Education', 111),
+    (2210, 'Decision Making', 111),
+    (2210, 'Problem Solving', 111),
+    (2210, 'Creativity', 111);
+	
+SELECT * FROM Human_resources;
+
+	
+--15
+INSERT INTO Project_manager (Dept_id, No_of_project_managed)
+VALUES
+    (101, 6),
+    (102, 5),
+    (103, 7),
+    (104, 3),
+    (105, 3),
+    (106, 4),
+    (107, 2),
+    (108, 5),
+    (109, 7),
+    (110, 2),
+    (111, 3);
+
+SELECT * FROM Project_manager;
+
+
+	
+--16
+INSERT INTO Projects (Project_id, p_name, Result, Start_date, Estimated_End_Date, End_Date, Dept_id)
+VALUES
+    (001, 'Mars Orbiter Mission', 'Success', '2013-11-05', '2014-06-01', '2014-09-24', 101),
+    (002, 'Chandrayaan-1', 'Success', '2008-10-22', '2012-08-20', '2012-08-30', 104),
+    (003, 'Mangalyaan', 'Success', '2013-11-05', '2017-09-01', '2017-09-24', 108),
+    (004, 'Chandrayaan-2', 'Ongoing', '2019-07-22', '2021-11-01', NULL, 103),
+    (005, 'PSLV-C51/Amazonia-1', 'Failure', '2021-02-28', '2022-03-28', '2022-02-28', 106),
+    (006, 'GSAT-30', 'Success', '2020-01-17', '2022-02-12', '2022-01-30', 109),
+    (007, 'RISAT-2BR1', 'Success', '2019-12-11', '2020-01-17', '2020-01-17', 111),
+    (008, 'IRNSS-1I', 'Success', '2018-04-12', '2020-04-12', '2020-04-12', 102),
+    (009, 'GSAT-6A', 'Failure', '2011-03-29', '2020-03-29', '2023-03-29', 104),
+    (010, 'EMISAT', 'Success', '2013-04-01', '2018-04-01', '2019-04-01', 105),
+    (011, 'RISAT-2B', 'Success', '2019-05-22', '2021-05-22', '2021-05-22', 107),
+    (012, 'GSAT-7A', 'Failure', '2000-12-19', '2004-12-19', '2005-12-19', 107),
+    (013, 'GSAT-11', 'Success', '2009-12-05', '2015-12-05', '2014-12-05', 108),
+    (014, 'GSAT-29', 'Success', '2018-11-14', '2020-11-14', '2020-11-14', 110),
+    (015, 'GSAT-7', 'Ongoing', '2022-08-30', '2022-08-30',NULL, 101);
+	
+SELECT * FROM Projects;
+
+
+--17
+INSERT INTO Publication (Project_id, Publication_year, Platform)
+VALUES
+    (001, 2014, 'Journal of Spacecraft and Rockets'),
+    (002, 2012, 'International Lunar Exploration Working Group'),
+    (003, 2017, 'Journal of Spacecraft and Rockets'),
+    (005, 2022, 'SRO Website'),
+    (006, 2022, 'SRO Website'),
+    (007, 2020, 'SRO Website'),
+    (008, 2020, 'SRO Website'),
+    (009, 2023, 'SRO Website'),
+    (010, 2019, 'SRO Website'),
+    (011, 2021, 'SRO Website'),
+    (012, 2005, 'SRO Website'),
+    (013, 2014, 'SRO Website'),
+    (014, 2020, 'SRO Website');
+
+SELECT * FROM Publication;
+
+
+--18
+INSERT INTO Finance (Dept_id, Account_No)
+VALUES
+    (101, 2001),
+    (102, 2002),
+    (103, 2003),
+    (104, 2004),
+    (105, 2005),
+    (106, 2006),
+    (107, 2007),
+    (108, 2008),
+    (109, 2009),
+    (110, 2010),
+    (111, 2011),
+    (112, 2012),
+    (113, 2013),
+    (114, 2014),
+    (115, 2015),
+    (116, 2016),
+    (117, 2017),
+    (118, 2018),
+    (119, 2019);	
+	
+SELECT * FROM Finance;
+
+
+
+--19
+INSERT INTO Funding (Dept_id, Account_No, Funding_type, Gov_amount, Pvt_amount, Pvt_name)
+VALUES
+    (101,2001, 'Research Grant', 500000, 200000, 'SpaceTech Inc.'),
+    (102,2002, 'Project Funding', 700000, 300000, 'AeroDynamics Ltd.'),
+    (103,2003,'Research Grant', 600000, 250000, 'Galaxy Innovations'),
+    (104,2004,'Project Funding', 800000, 400000, 'StarTech Corp.'),
+    (105,2005,'Research Grant', 550000, 220000, 'CosmoTech Solutions'),
+    (106,2006,'Project Funding', 750000, 350000, 'Rocket Dynamics Ltd.'),
+    (107,2007,'Research Grant', 650000, 270000, 'AstroTech Labs'),
+    (108,2008,'Project Funding', 850000, 450000, 'BioSpace Research'),
+    (109,2009,'Research Grant', 600000, 240000, 'SpaceMed Foundation'),
+    (110,2010,'Project Funding', 700000, 380000, 'NavigationTech Inc.'),
+    (111,2011,'Research Grant', 670000, 6600000, 'RoboSpace Systems'),
+    (113,2013,'Office supplies',NULL,75000,'Dell Technologies Inc.'),
+    (113,2013,'Safety Equipments',20000,50000,'RTX Corporation'),
+    (116,2016,'Goods and Necessities',30000,NULL,NULL),
+    (118,2018,'Cleaning Expenses',NULL,50000,'ABC Corporation'),
+    (119,2019,'Transportation',10000,100000,'AK Logistics');
+	
+SELECT * FROM Funding;
+
+
+--20
+INSERT INTO Public_communication (Dept_id, c_type)
+VALUES
+    (101, 'Press Releases'),
+    (102, 'Social Media Updates'),
+    (103, 'Press Conferences'),
+    (104, 'Media Interviews'),
+    (105, 'Newsletter Publications'),
+    (106, 'Public Lectures'),
+    (107, 'Educational Outreach Programs'),
+    (108, 'Community Events'),
+    (109, 'Website Updates'),
+    (110, 'Documentaries'),
+    (111, 'Science Exhibitions'),
+    (117, 'Workshops and Seminars');
+	
+SELECT * FROM Public_communication;
+
+	
+--21
+INSERT INTO Exposition (Expo_id, Title, Place, Date, Speaker_name, Audience_type)
+VALUES
+    (201, 'Exploring the Moon: Chandrayaan-2 Mission', 'ISRO Headquarters', '2020-07-20', 'Dr. Ramesh Singh', 'Public'),
+    (202, 'Journey to Mars: Mangalyaan Mission', 'National Science Museum', '2021-05-15', 'Dr. Priya Patel', 'Students'),
+    (203, 'Understanding Space Technology', 'City Hall Auditorium', '2022-09-10', 'Dr. Vikram Sharma', 'Educators'),
+    (204, 'Satellite Technology and Its Applications', 'Science and Technology Park', '2017-11-28', 'Dr. Ananya Gupta', 'Industry Professionals'),
+    (205, 'Space Exploration: Challenges and Opportunities', 'University Convention Center', '2018-03-05', 'Dr. Siddharth Kumar', 'Government Officials'),
+    (206, 'Mission to Mars: Challenges and Triumphs', 'Space Research Institute', '2021-08-12', 'Dr. Neha Singh', 'General Public'),
+    (207, 'Space Science for Sustainable Development', 'International Conference Center', '2020-11-18', 'Dr. Akash Patel', 'Policy Makers'),
+    (208, 'Journey to the Outer Solar System', 'Planetarium', '2021-02-22', 'Dr. Maya Sharma', 'Students'),
+    (209, 'Innovations in Satellite Communication', 'Technology Expo', '2021-06-30', 'Dr. Rajesh Verma', 'Industry Professionals'),
+    (210, 'Exploring the Universe: Beyond Our Solar System', 'National Science Museum', '2020-09-15', 'Dr. Aman Singh', 'Educators'),
+    (211, 'Satellite Remote Sensing: Applications and Challenges', 'ISRO Headquarters', '2020-01-08', 'Dr. Nisha Mehra', 'Government Officials'),
+    (212, 'Mars Colonization: Prospects and Realities', 'Space Science Institute', '2016-04-20', 'Dr. Aditya Sharma', 'General Public'),
+    (213, 'Space Tourism: Bridging the Gap', 'International Aerospace Expo', '20216-07-25', 'Dr. Ankit Gupta', 'Industry Professionals'),
+    (214, 'Satellite Navigation and Its Impact', 'Space Technology Summit', '2016-11-30', 'Dr. Priyanka Reddy', 'Policy Makers'),
+    (215, 'Future of Space Exploration', 'Space Science Convention', '201-03-10', 'Dr. Rahul Kumar', 'Students');
+	
+SELECT * FROM Exposition;
+
+
+	
+--22
+INSERT INTO Connect_by (Expo_id, Dept_id)
+VALUES
+    (201, 101),
+    (202, 102),
+    (203, 103),
+    (204, 104),
+    (205, 105),
+    (206, 106),
+    (207, 107),
+    (208, 108),
+    (209, 109),
+    (210, 110),
+    (211, 111),
+    (212, 117);
+	
+SELECT * FROM Connect_by; 
+	
+
+--23
+INSERT INTO Branch (Branch_id, B_name, State, City, Pincode)
+VALUES
+    (01, 'Spaceport Unit', 'Karnataka', 'Bangalore', 570015),
+    (02, 'Space Applications Centre', 'Gujarat', 'Ahmedabad', 380015),
+    (03, 'Vikram Sarabhai Space Centre', 'Kerala', 'Thiruvananthapuram', 695022),
+    (04, 'Satish Dhawan Space Centre', 'Andhra Pradesh', 'Sriharikota', 524124),
+    (05, 'Abdul Kalam Space Centre', 'Rajashthan', 'Jaipur', 234891),
+    (06, 'Tracking and Command Network', 'Karnataka', 'Bangalore', 570015),
+    (07, 'Inertial Systems Unit', 'Karnataka', 'Mysore', 570016)
+	
+SELECT * FROM Branch;
+
+	
+--24
+INSERT INTO Employee (Eid, F_name, M_init, L_name, Contact_No, Hire_Date, DOB, Gender, Salary, Branch_id, Dept_id)
+VALUES
+    (1001, 'Vivek', 'S', 'Patel', 1234567890, '2015-07-01', '1990-05-15', 'Male', 80000, 01, 102),
+    (1002, 'Teesha', 'M', 'Barot', 9876543210, '2016-02-15', '1992-10-20', 'Female', 75000, 02, 104),
+    (1003, 'Raj', 'A', 'Singh', 7890123456, '2017-05-10', '1988-12-05', 'Male', 95000, 07, 106),
+    (1004, 'Harshali', 'B', 'Dharmik', 4567890123, '2018-08-20', '1995-04-30', 'Female', 100000, 03, 108),
+    (1005, 'Riddhi', 'M', 'Mistry', 6543210987, '2019-11-25', '1993-09-12', 'Female', 90000, 03, 110),
+    (1006, 'Nishtha', 'S', 'Jones', 2345678901, '2020-04-02', '1997-07-18', 'Female', 72000, 06, 112),
+    (1007, 'Nipurna', 'S', 'Miller', 8901234567, '2021-01-10', '1991-03-08', 'Female', 82000, 07, 114),
+    (1008, 'Pari', 'U', 'Chauhan', 5678901234, '2022-03-15', '1994-11-25', 'Female', 78000, 05, 116),
+    (1009, 'Sahil', 'N', 'Naik', 3456789012, '2015-09-05', '1996-08-03', 'Male', 88000, 02, 118),
+    (1010, 'Vedant', 'J', 'Shah', 6789012345, '2016-06-12', '1989-06-28', 'Male', 76000, 01, 120),
+    (1011, 'Manan', 'S', 'Pareek', 4567890123, '2017-08-20', '1990-04-15', 'Male', 91000, 01, 101),
+    (1012, 'Vansh', 'H', 'Joshi', 7890123456, '2018-10-30', '1993-01-22', 'Male',  74000, 05, 103),
+    (1013, 'Shashank', 'G', 'Upadhyay', 1234567890, '2019-12-05', '1992-11-10', 'Male', 89000, 03, 105),
+    (1014, 'Vrishin', 'O', 'Pandya', 8901234567, '2020-03-20', '1995-07-03', 'Male', 80000, 04, 107),
+    (1015, 'Meghavi', 'D', 'Gohil', 2345678901, '2021-06-15', '1991-09-18', 'Female', 83000, 04, 109),
+    (1016, 'John', 'M', 'Doe', 1234567890, '2022-01-01', '1990-01-01', 'Male',  50000, 01, 111),
+    (1017, 'Jane', 'K', 'Smith', 9876543210, '2022-01-15', '1992-05-15', 'Female', 48000, 02, 113),
+    (1018, 'Michael', 'A', 'Johnson', 5551234567, '2022-02-01', '1985-11-20', 'Male', 55000, 03, 115),
+    (1019, 'Emily', 'N', 'Brown', 7779876543, '2022-02-15', '1994-09-30', 'Female', 47000, 04, 117),
+    (1020, 'David', 'J', 'Wilson', 9998765432, '2022-03-01', '1988-07-10', 'Male', 60000, 05, 119),
+    (1021, 'Sarah', 'L', 'Martinez', 1112345678, '2022-03-15', '1996-03-25', 'Female', 49000, 06, 101),
+    (1022, 'Robert', 'R', 'Taylor', 3337654321, '2022-04-01', '1991-04-05', 'Male', 58000, 07, 105),
+    (1023, 'Jessica', 'C', 'Anderson', 2226543210, '2022-04-15', '1993-08-15', 'Female', 52000, 02, 110),
+    (1024, 'William', 'T', 'Thomas', 4445432167, '2022-05-01', '1987-12-10', 'Male', 57000, 03, 115),
+    (1025, 'Amanda', 'E', 'White', 6664321987, '2022-05-15', '1995-06-20', 'Female', 51000, 04, 120),
+    (1026, 'Christopher', 'S', 'Hall', 8883219876, '2022-06-01', '1989-03-15', 'Male', 59000, 05, 103),
+    (1027, 'Ashley', 'P', 'Garcia', 5557654321, '2022-06-15', '1997-01-28', 'Female', 50000, 06, 106),
+    (1028, 'Matthew', 'D', 'Brown', 7779876543, '2022-07-01', '1986-09-10', 'Male', 56000, 07, 109),
+    (1029, 'Megan', 'F', 'Young', 9998765432, '2022-07-15', '1992-11-15', 'Female', 48000, 04, 112),
+    (1030, 'Joshua', 'M', 'Clark', 8887654321, '2022-08-01', '1994-02-20', 'Male', 54000, 06, 115);
+
+SELECT * FROM Employee;
+
+
+--25
+INSERT INTO Emp_Email (Eid, Email)
+VALUES
+    (1001, 'vivek1490@gmail.com'),
+    (1001,'vivekp5r6@gmail.com'),
+    (1001,'vzedfr4tr@gmail.com'),
+    (1002, 'zeel1691@gmail.com'),
+    (1002,'z69dfs1@gmail.com'),
+    (1003, 'rahul3490@gmail.com'),
+    (1003,'rsdfs123@gmail.com'),
+    (1003,'singh90@gmail.com'),
+    (1004, 'harshali3450@gmail.com'),
+    (1005, 'riddhi2390@gmail.com'),
+    (1005,'rm78@gmail.com'),
+    (1006, 'nishtha9089@gmail.com'),
+    (1006, 'ns127@gmail.com'),
+    (1007, 'nipurna8923@gmail.com'),
+    (1008, 'pari2378@gmail.com'),
+    (1009, 'sahil7654@gmail.com'),
+    (1010, 'vedant6789@gmail.com'),
+    (1011, 'manan5621@gmail.com'),
+    (1012, 'vansh6578@gmail.com'),
+    (1013, 'shashank1231@gmail.com'),
+    (1014, 'vrishin5644@gmail.com'),
+    (1015, 'meghavi8888@gmail.com'),
+    (1016, 'john.doe@gmail.com'),
+    (1016, 'john.doe.work@gmail.com'),
+    (1017, 'jane.smith@gmail.com'),
+    (1017, 'jane.smith.work@gmail.com'),
+    (1018, 'michael.johnson@gmail.com'),
+    (1018, 'michael.johnson.work@gmail.com'),
+    (1019, 'emily.brown@gmail.com'),
+    (1019, 'emily.brown.work@gmail.com'),
+    (1020, 'david.wilson@gmail.com'),
+    (1020, 'david.wilson.work@gmail.com'),
+    (1021, 'sarah.martinez@gmail.com'),
+    (1021, 'sarah.martinez.work@gmail.com'),
+    (1022, 'robert.taylor@gmail.com'),
+    (1022, 'robert.taylor.work@gmail.com'),
+    (1023, 'jessica.anderson@gmail.com'),
+    (1023, 'jessica.anderson.work@gmail.com'),
+    (1024, 'william.thomas@gmail.com'),
+    (1024, 'william.thomas.work@gmail.com'),
+    (1025, 'amanda.white@gmail.com'),
+    (1025, 'amanda.white.work@gmail.com'),
+    (1026, 'christopher.hall@gmail.com'),
+    (1026, 'christopher.hall.work@gmail.com'),
+    (1027, 'ashley.garcia@gmail.com'),
+    (1027, 'ashley.garcia.work@gmail.com'),
+    (1028, 'matthew.brown@gmail.com'),
+    (1028, 'matthew.brown.work@gmail.com'),
+    (1029, 'megan.young@gmail.com'),
+    (1029, 'megan.young.work@gmail.com'),
+    (1030, 'joshua.clark@gmail.com'),
+    (1030, 'joshua.clark.work@gmail.com');
+
+SELECT * FROM Emp_Email;
+
+
+--26
+INSERT INTO Emp_Education (Eid, Institute_name, Year_of_passing, Degree)
+VALUES
+    (1001, 'DA-IICT', 2013, 'B.Sc in Aerospace Engineering'),
+    (1002, 'IIT-Bombay', 2014, 'B.Tech in Mechanical Engineering'),
+    (1003, 'IIT-Madras', 2016, 'B.Sc in Physics'),
+    (1004, 'IIIT-Delhi', 2015, 'BE in Electronics and Communication'),
+    (1005, 'VIT-Bhopal', 2017, 'B.Sc in Astronautical Engineering'),
+    (1006, 'IIT-Bombay', 2018, 'B.Tech in Computer Science'),
+    (1007, 'IIIT-Delhi', 2018, 'B.Sc in Mathematics'),
+    (1008, 'DA-IICT', 2019, 'BE in Electrical Engineering'),
+    (1009, 'DA-IICT', 2013, 'M.Sc in Aerospace Engineering'),
+    (1010, 'VIT-Vellore', 2013, 'M.Tech in Mechanical Engineering'),
+    (1011, 'IIT-Madras', 2016, 'B.Sc in Physics'),
+    (1012, 'BITS-Goa', 2014, 'BE in Electronics and Communication'),
+    (1013, 'LMNIT-Jaipur', 2018, 'M.Sc in Astronautical Engineering'),
+    (1014, 'VIT-Bhopal', 2018, 'M.Tech in Computer Science'),
+    (1015, 'D.Y. Patil Institute of Technology', 2020, 'M.Tech in Mechanical Engineering'),
+    (1016, 'PDEU', 2015, 'B.Sc in Spacecraft Engineering'),
+    (1017, 'Gujarat University', 2017, 'B.Sc in Physics'),
+    (1018, 'Best School', 2019, '8th Pass'),
+    (1019, 'D.Y. Patil Institute of Technology', 2020, 'B.Sc in Planetary Science'),
+    (1020, 'SDSC', 2010, 'M.Tech in Remote Sensing and GIS'),
+    (1021, 'Gujarat University', 2009, 'M.Tech in Remote Sensing and GIS'),
+    (1022, 'AB School', 2020, '10th Pass'),
+    (1023, 'IIT-Mandi', 2008, 'B.Sc in Spacecraft Engineering'),
+    (1024, 'Reubs School', 2019, '12th Pass'),
+    (1025, 'PDEU', 2018, 'B.Tech in Mechanical Engineering'),
+    (1026, 'IIT-Mandi', 2017, 'M.Tech in Computer Science'),
+    (1027, 'IIIT-Hydrabad', 2016, 'B.Sc in Satellite Navigation'),
+    (1028, 'DU', 2011, 'M.Sc in Aerospace Engineering'),
+    (1029, 'SDSC', 2015, 'B.Sc in Satellite Navigation'),
+    (1030, 'IIIT-Hydrabad', 2013,'M.Tech in Mechanical Engineering');
+
+SELECT * FROM Emp_Educatio;
+
+
+--27
+INSERT INTO Visitors (Branch_id, Date_of_visit, Visitor_name, Contact_no, Organization, Purpose)
+VALUES
+    (01, '2024-01-10', 'John Smith', 1234567890, 'SpaceTech Inc.', 'Meeting with Department Heads'),
+    (02, '2024-02-15', 'Raj Shah', 9876543210, 'AeroDynamics Ltd.', 'Project Collaboration Discussion'),
+    (03, '2024-03-20', 'Emma Jones', 7890123456, 'Galaxy Innovations', 'Research Proposal Presentation'),
+    (04, '2024-04-25', 'Vedanshee Patel', 4567890123, 'StarTech Corp.', 'Technical Training Session'),
+    (05, '2024-05-05', 'Bansi Patel', 6543210987, 'CosmoTech Solutions', 'Product Demonstration'),
+    (06, '2024-06-10', 'Hardi Nayak', 2345678901, 'Rocket Dynamics Ltd.', 'Strategic Partnership Discussion'),
+    (07, '2024-07-15', 'Rajveer Singh', 8901234567, 'AstroTech Labs', 'Consultation on Satellite Technology'),
+    (02, '2024-08-20', 'Krishiv Mehta', 5678901234, 'BioSpace Research', 'Workshop on Biomedical Research in Space'),
+    (04, '2024-09-25', 'Matthew Stewarts', 3456789012, 'SpaceMed Foundation', 'Healthcare Initiative Presentation'),
+    (03, '2024-10-30', 'Savi Denvers', 6789012345, 'NavigationTech Inc.', 'GPS System Integration Meeting'),
+    (06, '2023-11-05', 'Jay Shah', 4567890123, 'RoboSpace Systems', 'Discussion on Robotics in Space'),
+    (07, '2023-12-10', 'Harsh Kapoor', 7890123456, 'WeatherTech Ltd.', 'Weather Monitoring Solutions Presentation'),
+    (01, '2023-01-15', 'Raj Mehta', 1234567890, 'Debris Solutions', 'Cleanup Technology Proposal'),
+    (01, '2023-02-20', 'Harshit Kapadiya', 8901234567, 'SpacePolicy Institute', 'Policy Development Workshop'),
+    (03, '2023-03-25', 'Akshit Iyer', 2345678901, 'Exploration Technologies', 'Exploration Equipment Demo');
+
+SELECT * FROM Visitors;
